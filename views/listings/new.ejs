@@ -1,0 +1,85 @@
+<%layout("/layout/boilerplate")%>
+<body>
+    <div class="row mt-2">
+        <div class="col-8 offset-2">
+            <form method="POST" action="/listings" novalidate class="needs-validation" id="listingForm" enctype="multipart/form-data">
+                <h2 class="mt-1">Creating New Listing</h2>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input class="form-control" type="text" name="listing[title]" placeholder="Enter title" required>
+                    <div class="valid-feedback">Title looks good!</div>
+                    <div class="invalid-feedback">Please enter a title.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Enter description" class="form-control" required></textarea>
+                    <div class="valid-feedback">Description looks good!</div>
+                    <div class="invalid-feedback">Please enter a description.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload file</label>
+                    <input type="file" name="listing[image]" class="form-control" required>
+                    <div class="valid-feedback">Image URL looks good!</div>
+                    <div class="invalid-feedback">Please enter an image URL.</div>
+                </div>
+
+                <div class="mb-3 col-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" name="listing[price]" placeholder="1200" class="form-control" required>
+                    <div class="valid-feedback">Price looks good!</div>
+                    <div class="invalid-feedback">Please enter a price.</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="listing[location]" placeholder="Ujjain,MP" class="form-control" required>
+                        <div class="valid-feedback">Location looks good!</div>
+                        <div class="invalid-feedback">Please enter a location.</div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+                        <div class="valid-feedback">Country looks good!</div>
+                        <div class="invalid-feedback">Please enter a country.</div>
+                    </div>
+                </div>
+                <div class="mb-3 col-3">
+                    
+                </div>
+
+                <button type="submit" class="btn add-btn mb-3 mt-2">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('listingForm').addEventListener('submit', function(event) {
+            // Custom validation logic
+            let form = this;
+            let isValid = true;
+
+            // Check required fields
+            form.querySelectorAll('[required]').forEach(function(input) {
+                if (!input.value) {
+                    isValid = false;
+                    input.classList.add('is-invalid');
+                    input.classList.remove('is-valid');
+                } else {
+                    input.classList.add('is-valid');
+                    input.classList.remove('is-invalid');
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                form.classList.add('was-validated');
+            }
+        }, false);
+    </script>
+</body>

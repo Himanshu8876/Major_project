@@ -1,0 +1,99 @@
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgba(250, 235, 215, 0.74);
+}
+.container{
+    flex: 1;
+}
+.add-btn{
+    background-color: #f2424d !important;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-compass{
+    color: #f2424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color:#222222 !important;
+    font-size: 1.3rem !important;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info-links,.f-info-socilas,.brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-info-socilas i{
+    font-size: 1.3rem;
+    margin-right: 1rem;
+}
+.f-info{
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+    color: #222222;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+.cart-text p{
+    font-weight: 300;
+}
+.listing-link{
+    text-decoration: none;
+    color: #222222;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: #ebebeb;
+}
+
+.show-img{
+    height: 30vh;
+}
+#map { 
+    height: 400px;
+    width: 90vh;
+}
+@media (max-width:768px) {
+    #map{
+        width: 100%;
+        height:300px;
+    }
+    
+}

@@ -1,0 +1,39 @@
+<style>
+    .para{
+        font-size: 3rem;
+        text-align: center;
+    }
+</style>
+<%layout("/layout/boilerplate")%>
+<body>
+    <% let found = false; %>
+    <% for(let listing of listings) { %>
+        <% if (listing.location.toLowerCase() == query.toLowerCase()) { %>
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+                <div class="card col listing-card"  >
+                    <a href="/listings/<%=listing._id%>" class="listing-link"><img src="<%= listing.image.url %>"   class="card-img-top "   style="height: 20rem;">
+                      <div class="card-img-overlay"></a></div>
+                      <div class="card-body">
+                        <a href="/listings/<%=listing._id%>" class="listing-link"><h5 class="card-title"><b><%=listing.title%></b></h5></a>
+                        <h5 class="card-title"><b><%=listing.location%></b></h5>
+                        <a href="/listings/<%=listing._id%>" class="listing-link"><p class="card-text">&#8377;<%=listing.price%> /night
+                        <i class="tax-info">&nbsp;&nbsp;+18% GST</i>&nbsp;&nbsp;
+                        <i class="total-price">=&#8377;<%= (listing.price * 1.18).toFixed(2) %> /night</i>
+                      </p></a>
+                      </div>
+                    
+            </div>
+            <% found = true; %>
+            <% break; %> <!-- Stop the loop once a match is found -->
+        <% } %>
+    <% } %>
+    <% if (!found) { %>
+        <p class="para">No Hotels available at your destination</p>
+        <script>
+            setTimeout(function() {
+                window.location.href = '/listings'; // Redirect to homepage after 3 seconds
+            }, 2000); // Adjust the delay as needed
+        </script>
+    <% } %>
+</body>
+

@@ -1,0 +1,87 @@
+<%layout("/layout/boilerplate")%>
+<body>
+    <div class="row mt-2">
+        <div class="col-10 offset-1">
+            <h2>Edit the information</h2>
+            <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" id="editListingForm" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" value="<%=listing.title%>" class="form-control" required>
+                    <div class="valid-feedback">Title looks good!</div>
+                    <div class="invalid-feedback">Please enter a title.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" required><%=listing.description%></textarea>
+                    <div class="valid-feedback">Description looks good!</div>
+                    <div class="invalid-feedback">Please enter a description.</div>
+                </div>
+                <div class="mb-3">
+                    <p>Original image</p>
+                    <img src="<%= originalListingUrl %>" alt="">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload New Image</label>
+                    <input type="file" name="listing[image]"  class="form-control">
+                    <div class="valid-feedback">Image URL looks good!</div>
+                    <div class="invalid-feedback">Please enter an image URL.</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="text" name="listing[price]" value="<%=listing.price%>" class="form-control" required>
+                        <div class="valid-feedback">Price looks good!</div>
+                        <div class="invalid-feedback">Please enter a price.</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="listing[location]" value="<%=listing.location%>" class="form-control" required>
+                        <div class="valid-feedback">Location looks good!</div>
+                        <div class="invalid-feedback">Please enter a location.</div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" value="<%=listing.country%>" class="form-control" required>
+                        <div class="valid-feedback">Country looks good!</div>
+                        <div class="invalid-feedback">Please enter a country.</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark mb-4 mt-4">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('editListingForm').addEventListener('submit', function(event) {
+            // Custom validation logic
+            let form = this;
+            let isValid = true;
+
+            // Check required fields
+            form.querySelectorAll('[required]').forEach(function(input) {
+                if (!input.value) {
+                    isValid = false;
+                    input.classList.add('is-invalid');
+                    input.classList.remove('is-valid');
+                } else {
+                    input.classList.add('is-valid');
+                    input.classList.remove('is-invalid');
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                form.classList.add('was-validated');
+            }
+        }, false);
+    </script>
+</body>
