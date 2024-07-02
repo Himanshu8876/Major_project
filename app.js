@@ -39,7 +39,7 @@ const sessionOption = {
     }
 };
 
-const DB = 'mongodb+srv://garghimanshu778:5dLAT1xk51yibTRJ@cluster0.19to71n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const DB = process.env.DB_KEY;
 
 mongoose.connect(DB).then(()=>{
     console.log('connection done');
