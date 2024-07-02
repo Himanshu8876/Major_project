@@ -7,12 +7,16 @@
 <style>
     @media (max-width:768px) {
         .review{
-            width: 300px;
+            width: 600px;
             margin-right: 5rem;
+        }
+        .extra{
+            width: 250px;
         }
         #comment{
             border:1.5px solid #000;
         }
+        
     }
 </style>
 <body>
@@ -84,7 +88,7 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="comment" class="form-label">Leave your Comment</label>
-                    <textarea name="review[comment]" id="comment" cols="30" rows="6" class="form-control" required></textarea>
+                    <textarea name="review[comment]" id="comment" cols="30" rows="6" class="form-control extra" required></textarea>
                     <div class="valid-feedback">Comment looks good!</div>
                     <div class="invalid-feedback">Please enter a comment.</div>
                     <br />
@@ -97,8 +101,8 @@
             <div class="row">
                 <h3 class="mb-5"><b>All Review</b></h3>
             <%for(review of listing.reviews){ %>
-              <div class="card col-5 mb-3 ms-3">
-                <div class="card-body">
+              <div class="card col-7 mb-3 ms-3">
+                <div class="card-body phone">
                   <h5 class="card-title"><%= review.author.username %></h5>
                   <p class="cart-text"><%= review.comment %></p>
                   <p class="starability-result cart-text" data-rating="<%= review.rating %>"></p>
