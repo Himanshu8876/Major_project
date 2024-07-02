@@ -1,4 +1,9 @@
 <%layout("/layout/boilerplate")%>
+<style>
+    #comment{
+        border:1.5px solid #000;
+    }
+</style>
 <body>
     <div class="row mt-2">
         <div class="col-8 offset-2">
@@ -6,28 +11,28 @@
                 <h2 class="mt-1">Creating New Listing</h2>
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input class="form-control" type="text" name="listing[title]" placeholder="Enter title" required>
+                    <input class="form-control" type="text" name="listing[title]" placeholder="Enter title" id="comment" required>
                     <div class="valid-feedback">Title looks good!</div>
                     <div class="invalid-feedback">Please enter a title.</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="listing[description]" placeholder="Enter description" class="form-control" required></textarea>
+                    <textarea name="listing[description]" placeholder="Enter description" class="form-control" id="comment" required></textarea>
                     <div class="valid-feedback">Description looks good!</div>
                     <div class="invalid-feedback">Please enter a description.</div>
                 </div>
 
                 <div class="mb-3">
                     <label for="image" class="form-label">Upload file</label>
-                    <input type="file" name="listing[image]" class="form-control" required>
+                    <input type="file" name="listing[image]" class="form-control" id="comment" required>
                     <div class="valid-feedback">Image URL looks good!</div>
                     <div class="invalid-feedback">Please enter an image URL.</div>
                 </div>
 
-                <div class="mb-3 col-3">
+                <div class="mb-3 col-4">
                     <label for="price" class="form-label">Price</label>
-                    <input type="text" name="listing[price]" placeholder="1200" class="form-control" required>
+                    <input type="text" name="listing[price]" placeholder="1200" class="form-control" id="comment" required>
                     <div class="valid-feedback">Price looks good!</div>
                     <div class="invalid-feedback">Please enter a price.</div>
                 </div>
@@ -35,14 +40,14 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label for="location" class="form-label">Location</label>
-                        <input type="text" name="listing[location]" placeholder="Ujjain,MP" class="form-control" required>
+                        <input type="text" name="listing[location]" placeholder="Ujjain,MP" class="form-control" id="comment" required>
                         <div class="valid-feedback">Location looks good!</div>
                         <div class="invalid-feedback">Please enter a location.</div>
                     </div>
 
                     <div class="mb-3 col-md-6">
                         <label for="country" class="form-label">Country</label>
-                        <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+                        <input type="text" name="listing[country]" placeholder="India" class="form-control" id="comment" required>
                         <div class="valid-feedback">Country looks good!</div>
                         <div class="invalid-feedback">Please enter a country.</div>
                     </div>

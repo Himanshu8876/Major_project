@@ -7,7 +7,11 @@
 <style>
     @media (max-width:768px) {
         .review{
-            width: 700px;
+            width: 300px;
+            margin-right: 5rem;
+        }
+        #comment{
+            border:1.5px solid #000;
         }
     }
 </style>
@@ -51,7 +55,7 @@
         </div>
         
         <hr>
-        <div class="review col-8 offset-3">
+        <div class="review col-8  offset-3">
             <%if(currUser){%>
             <h4>Leave a review</h4>
             <form action="/listings/<%= listing.id %>/reviews" method="post" id="reviewForm" novalidate class="needs-validation">

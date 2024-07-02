@@ -39,16 +39,11 @@ const sessionOption = {
     }
 };
 
-async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/WonderLust", { useNewUrlParser: true, useUnifiedTopology: true });
-}
-// const dburl = process.env.DBURL;
+const DB = 'mongodb+srv://garghimanshu778:5dLAT1xk51yibTRJ@cluster0.19to71n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
-main()
-    .then(()=>{
-        console.log("succesfull");
-    })
-    .catch((err)=>console.log(err));
+mongoose.connect(DB).then(()=>{
+    console.log('connection done');
+}).catch((err)=>{console.log(err)});
 
 // async function main(){
 //     await mongoose.connect(dburl);
